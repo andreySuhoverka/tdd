@@ -1,10 +1,24 @@
 package epam.hangman;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class HangmanGame {
 
     HangmanGame() {
         setDefaultLevel();
+        levelToWord = new HashMap<Integer, String>(){
+            {
+                put(3,"ярд");                
+                put(4,"риск");                
+                put(5,"музон");                
+                put(6,"ролики");                
+                put(7,"подарок");                
+            }
+        };
     }
+    
+    private Map<Integer, String> levelToWord;
     
     private int level;
     
@@ -23,8 +37,8 @@ public class HangmanGame {
         level = 3;
     }
 
-    public String userShouldBeAbleToObtainWord() {
-        return "";
+    public String obtainWordAccordingToTheLevel(int level) {
+        return levelToWord.get(level);
     }
     
 }
