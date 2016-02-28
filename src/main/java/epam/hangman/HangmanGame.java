@@ -1,6 +1,10 @@
 package epam.hangman;
 
 public class HangmanGame {
+
+    HangmanGame() {
+        setDefaultLevel();
+    }
     
     private int level;
     
@@ -13,6 +17,10 @@ public class HangmanGame {
     
     public int getLevel() {
         return level;
+    }
+    
+    private void setDefaultLevel(){
+        level = 3;
     }
     
 }
