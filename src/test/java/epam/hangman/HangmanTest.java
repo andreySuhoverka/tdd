@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class HangmanTest {
 
@@ -33,6 +34,12 @@ public class HangmanTest {
     @Test
     public void defaultLevelMustThree() {
         assertEquals("Default level must be three", 3, hangman.getLevel());        
+    }
+
+    @Test
+    public void userShouldBeAbleToObtainWordWithLengthAccordingToTheLevel() {
+        String word = hangman.userShouldBeAbleToObtainWord();
+        assertNotNull("Word must not be null", word);
     }
     
 

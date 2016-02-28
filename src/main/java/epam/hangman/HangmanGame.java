@@ -22,5 +22,9 @@ public class HangmanGame {
     private void setDefaultLevel(){
         level = 3;
     }
+
+    public String userShouldBeAbleToObtainWord() {
+        return "";
+    }
     
 }
