@@ -40,5 +40,12 @@ public class HangmanGame {
     public String obtainWordAccordingToTheLevel(int level) {
         return levelToWord.get(level);
     }
-    
+
+    public boolean guessOneLetter(String letter) {
+        if(letter.length() != 1){
+            throw new IllegalArgumentException("user can type only one letter");
+        }
+        String word = obtainWordAccordingToTheLevel(level);
+        return word.contains(letter);
+    }
 }
