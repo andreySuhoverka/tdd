@@ -2,6 +2,7 @@ package epam.hangman;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -49,6 +50,13 @@ public class HangmanTest {
     public void userCanGuessLetter() {
         assertFalse(hangman.guessOneLetter("ж"));
         assertTrue(hangman.guessOneLetter("я"));
+    }
+    
+    @Test(expected = RuntimeException.class)
+    public void userCanMakeNotMoreThanSevenSteps() {
+        for(int k = 0; k < 10; k++) {
+            hangman.guessOneLetter("я");            
+        }        
     }
 
 }

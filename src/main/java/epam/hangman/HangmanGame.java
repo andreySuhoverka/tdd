@@ -16,11 +16,13 @@ public class HangmanGame {
                 put(7,"подарок");                
             }
         };
+        madeSteps = 0;
     }
     
     private Map<Integer, String> levelToWord;
     
     private int level;
+    private int madeSteps;
     
     public void setLevel(int level) {
         if(level < 3 || level > 7){
@@ -42,6 +44,10 @@ public class HangmanGame {
     }
 
     public boolean guessOneLetter(String letter) {
+        madeSteps++;
+        if(madeSteps == 8){
+            throw new RuntimeException("game over");
+        }
         if(letter.length() != 1){
             throw new IllegalArgumentException("user can type only one letter");
         }
