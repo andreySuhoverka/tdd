@@ -2,11 +2,8 @@ package epam.hangman;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class HangmanTest {
 
@@ -57,6 +54,15 @@ public class HangmanTest {
         for(int k = 0; k < 10; k++) {
             hangman.guessOneLetter("я");            
         }        
+    }
+
+    @Test
+    public void hangmanGameCanCheckWeatherUserAliveOrNot() {
+        assertTrue("User must be alive because he didn't make steps yet", hangman.userAlive());
+        for(int k = 0; k < 4; k++) {
+            hangman.guessOneLetter("з");
+        }
+        assertFalse("User must not be alive", hangman.userAlive());
     }
 
 }

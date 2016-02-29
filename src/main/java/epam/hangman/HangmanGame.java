@@ -54,4 +54,9 @@ public class HangmanGame {
         String word = obtainWordAccordingToTheLevel(level);
         return word.contains(letter);
     }
+
+    public boolean userAlive() {
+        return madeSteps < level + 1;
+    }
+
 }
